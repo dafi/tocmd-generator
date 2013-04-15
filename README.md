@@ -64,6 +64,6 @@ Example
 		saveShowStatus:false
 	});
 
-## Dependecies
+## Dependencies
 
 * The [cookie plugin](https://github.com/carhartl/jquery-cookie) if present allow to save collapse status when user click on hide/show button. If the cookie plugin is not present the saveShowStatus paramenter is ignored
