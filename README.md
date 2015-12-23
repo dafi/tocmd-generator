@@ -37,7 +37,7 @@ The plugin by default generates the TOC
 Generate the toc starting from DOM element with id main_content:
 
 	$('#main_content').toc();
-	
+
 Generate the toc always, also if page contains only one H1
 
 	$('#main_content').toc({
@@ -49,13 +49,14 @@ Generate the toc always, also if page contains only one H1
 
 The following parameters can be passed to toc() function
 
+* **renderIn** (default: 'self') specify where on a page to inject and render the menu
 * **anchorPrefix** (default: 'tocAnchor-') the default prefix used for generated TOC elements IDs
 * **showAlways** (default: false) Show TOC also if only one H1 is present on page, the TOC is never show if no H1s are found on page
 * **saveShowStatus** (default: true) Save the collapse status using a cookie (see dependecies for further details)
-* **contentsText** (default: 'Contents') The label text shown for Content, you can localize passing another string 
-* **hideText** (default: 'hide') The label text shown for hide button, you can localize passing another string 
-* **showText** (default: 'show')  The label text shown for show button, you can localize passing another string 
-	
+* **contentsText** (default: 'Contents') The label text shown for Content, you can localize passing another string
+* **hideText** (default: 'hide') The label text shown for hide button, you can localize passing another string
+* **showText** (default: 'show')  The label text shown for show button, you can localize passing another string
+
 Example
 
 	$('#main_content').toc({
