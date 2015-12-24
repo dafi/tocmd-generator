@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>TOC Generator for Markdown</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="../css/toc.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="../js/jquery.toc.js"></script>
+    <style type="text/css">
+    #renderIn {
+      margin-left: 3em;
+    }
+    </style>
+
+    <script type="text/javascript">
+    $(function() {
+      $('#main').toc({
+        showAlways:true,
+        renderIn:'#renderIn',
+        contentsText:"Legenda",
+        hideText:'Collapse',
+        showText:'Expand'
+      });
+    });
+    </script>
+
+  </head>
+  <body>
+
+    <!-- Main -->
+      <section id="main">
+        <header>
+          <h2>Table od Contents Demo</h2>
+          <div id="renderIn"></div>
+        </header>
+          <div>
+              <section>
+                <h1 id="tocAnchor-1-1">Chapter 1</h1>
+                Lorem ipsum dolor sit amet.
+                <h1 id="tocAnchor-1-2">Chapter 2</h1>
+                Nunc vitae dolor magna.
+                <h1 id="tocAnchor-1-5">Chapter 3 (with subs)</h1>
+                <h2 id="tocAnchor-1-5-1">Sub chapter 1</h2>
+                Suspendisse tempor leo in tempus interdum.
+                <h2 id="tocAnchor-1-5-2">Sub chapter 2</h2>
+                 Curabitur imperdiet nulla eros, ac suscipit nulla pellentesque sit amet.
+              </section>
+          </div>
+      </section>
+  </body>
+</html>
