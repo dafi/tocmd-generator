@@ -33,10 +33,12 @@
             renderIn: 'self',
             anchorPrefix: 'tocAnchor-',
             showAlways: false,
+            minItemsToShowToc: 2,
             saveShowStatus: true,
             contentsText: 'Contents',
             hideText: 'hide',
-            showText: 'show'};
+            showText: 'show',
+            showCollapsed: false};
 
         if (settings) {
             $.extend(config, settings);
@@ -80,8 +82,11 @@
             ++itemNumber;
         });
 
-        var hasOnlyOneTocItem = tocLevel == 1 && tocSection <= 2;
-        var show = config.showAlways ? true : !hasOnlyOneTocItem;
+        // for convenience itemNumber starts from 1
+        // so we decrement it to obtain the index count
+        var tocIndexCount = itemNumber - 1;
+
+        var show = config.showAlways ? true : config.minItemsToShowToc <= tocIndexCount;
 
         // check if cookie plugin is present otherwise doesn't try to save
         if (config.saveShowStatus && typeof($.cookie) == "undefined") {
@@ -130,6 +135,10 @@
                 ul.hide();
                 $('#toctogglelink').text(config.showText);
                 $('#toc').addClass('tochidden');
+            }
+
+            if (config.showCollapsed) {
+                $('#toctogglelink').click();
             }
         }
         return this;
