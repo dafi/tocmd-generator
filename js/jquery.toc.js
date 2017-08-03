@@ -28,6 +28,14 @@
             .replace('%3', link);
     }
 
+    function checkMaxHead($root) {
+        if ($root.find('h1').length > 0) {
+            return ['h1', 'h2'];
+        } else {
+            return ['h2', 'h3'];
+        }
+    }
+
     $.fn.toc = function(settings) {
         var config = {
             renderIn: 'self',
@@ -51,12 +59,16 @@
 
         var tocContainer = $(this);
 
-        tocContainer.find('h1').each(function() {
+        var heads = checkMaxHead(tocContainer);
+        var firstHead = heads[0];
+        var secondHead = heads[1];
+
+        tocContainer.find(firstHead).each(function() {
             var levelHTML = '';
             var innerSection = 0;
             var h1 = $(this);
 
-            h1.nextUntil('h1').filter('h2').each(function() {
+            h1.nextUntil(firstHead).filter(secondHead).each(function() {
                 ++innerSection;
                 var anchorId = config.anchorPrefix + tocLevel + '-' + tocSection + '-' +  + innerSection;
                 $(this).attr('id', anchorId);
