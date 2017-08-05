@@ -17,8 +17,9 @@ Include script *after* the jQuery library (unless you are packaging scripts some
 
 ## Getting Started
 
-The plugin uses the HTML `H1` and `H2` elements present in the page to build the TOC.  
-`H1` and `H2` are generated using mardown
+The plugin first tries to use the HTML `H1` and `H2` elements present in the page to build the TOC. If there is no `H1` but have `H2` then the plugin will use `H2` and `H3` elemements to build the TOC.
+
+`H1` `H2` and `H3` are generated using mardown.
 
 The generated content is very similar to the TOC present on mediawiki pages.  
 
@@ -31,14 +32,14 @@ The plugin consists of
 
 The plugin by default generates the TOC
 
-* when the page contains at least two `H1`
+* when the page contains at least two `H1` or zero `H1` and at least two `H2`
 * saving the hide/show status into cookie (if the cookie plugin is present)
 
 Generate the toc starting from DOM element with id main_content:
 
 	$('#main_content').toc();
 
-Generate the toc always, also if page contains only one `H1`
+Generate the toc always, also if page contains only one `H1` or `H2`
 
 	$('#main_content').toc({
 		minItemsToShowToc:0
@@ -58,7 +59,7 @@ The following parameters can be passed to the `toc()` function
 | hideText          | The label text shown for hide button, you can localize it passing another string                              | 'hide'        |
 | showText          | The label text shown for show button, you can localize it passing another string                              | 'show'        |
 | showCollapsed    | Show the TOC collapsed                                                                            | `false`       |
-| minItemsToShowToc | Minimum number of items to show the TOC, `0` means no limit.<br/>Suppose you want to generated the TOC only if there are at least 3 H1 | `2`  |
+| minItemsToShowToc | Minimum number of items to show the TOC, `0` means no limit.<br/>Suppose you want to generated the TOC only if there are at least 3 H1 or H2 | `2`  |
 | showAlways        | **DEPRECATED** Use `minItemsToShowToc` instead.<br/>Show TOC also if only one H1 is present on page, the TOC is never show if no H1s are found on page            | `false`       |
 
 Example
